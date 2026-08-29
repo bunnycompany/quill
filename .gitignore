@@ -1,0 +1,5 @@
+.DS_Store
+app/Quill.app/
+npm/Quill.app.zip
+npm/*.tgz
+exports/

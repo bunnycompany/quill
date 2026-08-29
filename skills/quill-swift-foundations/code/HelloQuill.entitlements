@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!-- App Sandbox on: the OS confines the app to its container.
+	     This is Quill's privacy guarantee, enforced by macOS itself. -->
+	<key>com.apple.security.app-sandbox</key>
+	<true/>
+
+	<!-- Microphone capture (AVAudioEngine input node). -->
+	<key>com.apple.security.device.audio-input</key>
+	<true/>
+
+	<!-- Read/write ONLY files/folders the user explicitly picks in an
+	     NSOpenPanel (the Obsidian vault). Not blanket disk access. -->
+	<key>com.apple.security.files.user-selected.read-write</key>
+	<true/>
+
+	<!-- Deliberately ABSENT:
+	     com.apple.security.network.client / .server — Quill is local-only.
+	     If any dependency tries to phone home, the sandbox blocks it. -->
+</dict>
+</plist>

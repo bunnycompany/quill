@@ -1,0 +1,14 @@
+{
+  "name": "@pepperchan/quill",
+  "version": "0.1.0-alpha.2",
+  "description": "Quill — local-first macOS menubar meeting recorder: on-device diarization, transcription, and Obsidian export. Ships a native .app; installs to /Applications.",
+  "bin": { "quill-install": "bin/install.js" },
+  "scripts": {
+    "postinstall": "node bin/install.js || true"
+  },
+  "os": ["darwin"],
+  "cpu": ["arm64"],
+  "files": ["bin", "Quill.app.zip", "README.md"],
+  "keywords": ["macos", "menubar", "meeting", "transcription", "diarization", "obsidian", "local-first"],
+  "license": "MIT"
+}
