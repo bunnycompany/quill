@@ -1,6 +1,6 @@
 {
   "name": "@pepperchan/quill",
-  "version": "0.1.0-alpha.2",
+  "version": "0.1.0-alpha.1",
   "description": "Quill — local-first macOS menubar meeting recorder: on-device diarization, transcription, and Obsidian export. Ships a native .app; installs to /Applications.",
   "bin": { "quill-install": "bin/install.js" },
   "scripts": {
