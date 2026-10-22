@@ -126,7 +126,19 @@ actor QuillStore {
             VALUES (?1, 0, ?2, ?3, ?4)
             ON CONFLICT(content_hash) DO UPDATE SET title = excluded.title
             """, [startedAt, title, audioPath, contentHash])
-        return sqlite3_last_insert_rowid(db)
+        // Not sqlite3_last_insert_rowid(): when the upsert takes the DO UPDATE
+        // path SQLite leaves it at whatever this connection inserted last
+        // (some other table's row), so the segments and note of a recovered
+        // recording would attach to the wrong recording. Look the id up by
+        // the key we just upserted on instead.
+        let sql = "SELECT id FROM recording WHERE content_hash = ?1"
+        let stmt = try prepare(sql, [contentHash])
+        defer { sqlite3_finalize(stmt) }
+        guard sqlite3_step(stmt) == SQLITE_ROW else {
+            throw StoreError.stepFailed(
+                sql: sql, message: String(cString: sqlite3_errmsg(db)))
+        }
+        return sqlite3_column_int64(stmt, 0)
     }
 
     /// Audio paths that made it all the way to an exported note.

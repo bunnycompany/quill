@@ -22,7 +22,8 @@ Either installs `Quill.app` to `/Applications` (npm falls back to
 `quill-install`). Requires macOS 15+ on Apple Silicon. The alpha is ad-hoc
 signed, so macOS may block the first launch: open System Settings → Privacy &
 Security and click **Open Anyway** (macOS 15 no longer offers right-click →
-Open for unsigned apps).
+Open for unsigned apps). Homebrew users can skip that prompt with
+`brew install --cask --no-quarantine quill`.
 
 ## Use
 

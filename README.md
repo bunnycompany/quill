@@ -22,7 +22,8 @@ Either installs `Quill.app` to `/Applications` (npm falls back to
 `quill-install`). Requires macOS 15+ on Apple Silicon. The alpha is ad-hoc
 signed, so macOS may block the first launch: open System Settings → Privacy &
 Security and click **Open Anyway** (macOS 15 no longer offers right-click →
-Open for unsigned apps).
+Open for unsigned apps). Homebrew users can skip that prompt with
+`brew install --cask --no-quarantine quill`.
 
 ## Use
 
@@ -45,7 +46,7 @@ Speaker separation quality depends on voices being acoustically distinct.
 
 - `app/` — Swift sources and `build.sh`. See [`app/BUILD.md`](app/BUILD.md) to build from source or cut a release.
 - `npm/` — the `@pepperchan/quill` installer package; it bundles the built `Quill.app.zip`.
-- `site/` — the single-page site served at quill.systems.
+- `site/` — the single-page site served at quill.systems; deployed by hand to Cloudflare Pages (see [`app/BUILD.md`](app/BUILD.md)).
 - `skills/` — eight teaching modules that rebuild Quill from zero; start at [`skills/CURRICULUM.md`](skills/CURRICULUM.md).
 - `marketing/` — launch post drafts.
 

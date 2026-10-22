@@ -8,13 +8,15 @@ GitHub release of the same version.
 
 First public alpha.
 
-- Complete-transcript fix
+- Transcripts no longer stop at the first long pause: every pause-delimited
+  recognizer result is kept
 - Learning lexicon: built from the vault (note titles, tags, wikilinks) and
   editable via `Quill/lexicon.md`
 - Voice profiles: rename a speaker in a note and Quill learns the name
 - Crash recovery: audio streams to disk; orphaned recordings finish
   processing on next launch
-- Cleaned-notes folder
+- Cleaned-notes folder: with cleanup on, the AI-cleaned transcript is filed
+  under `Meetings/cleaned/` and cross-linked to the raw note
 - Processing queue
 - Menubar level meter
 

@@ -164,7 +164,18 @@ public actor AudioRecorderEngine {
             micPipe.ingest(buffer, into: micRing)   // no self capture at all
         }
         avEngine.prepare()
-        try avEngine.start()
+        do {
+            try avEngine.start()
+        } catch {
+            // Roll back, or the next start() calls installTap on a bus that is
+            // already tapped — an NSException that no Swift catch can stop.
+            input.removeTap(onBus: 0)
+            audioFile = nil
+            fileURL = nil
+            cont.finish()
+            try? FileManager.default.removeItem(at: url)
+            throw error
+        }
 
         // 6. System loopback via ScreenCaptureKit.
         if cfg.captureSystemAudio {

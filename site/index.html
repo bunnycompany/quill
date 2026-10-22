@@ -101,6 +101,7 @@
   pre.install {
     background: var(--code-bg); border: 1px solid var(--rule); border-radius: 6px;
     padding: 1rem 1.2rem; overflow-x: auto;
+    white-space: pre-wrap; overflow-wrap: anywhere;
     font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: .88rem;
   }
   .alpha {
@@ -182,16 +183,17 @@
         <div class="pm-row"><span class="pm-dim pm-label">Mic</span>
           <span class="pm-meter"><span class="pm-fill"></span></span></div>
         <div class="pm-row"><span>Capture system audio</span><span class="pm-switch off"></span></div>
-        <div class="pm-row"><span>Clean up transcript (Apple Intelligence)</span><span class="pm-switch on"></span></div>
+        <div class="pm-row"><span>Clean up transcript (Apple Intelligence)</span><span class="pm-switch off"></span></div>
         <div class="pm-row"><span>Recognize known voices</span><span class="pm-switch on"></span></div>
         <div class="pm-queue">
           <div class="pm-dim pm-caps">Processing</div>
-          <div class="pm-row"><span>⏳ Recovered · Aug 14 16:51 (72 min)</span><span class="pm-dim">Transcribing…</span></div>
+          <div class="pm-row"><span>⏳ Recovered · quill-2026-08-14T23-51-15Z.caf</span><span class="pm-dim">Transcribing…</span></div>
         </div>
         <div class="pm-row"><span class="pm-dim">📁 danger</span><span class="pm-choose">Choose…</span></div>
         <div class="pm-row pm-footer"><span class="pm-dim">⌥⌘R toggles recording</span><span class="pm-choose">Quit</span></div>
       </div>
-      <p class="pm-note">Rendered illustration of the current build's popover.</p>
+      <p class="pm-note">Rendered illustration of the current build's popover. The toggles and the
+      processing queue are shown inline here; in the app they sit behind the gear.</p>
     </section>
 
     <section>
@@ -204,7 +206,7 @@
         <div class="row"><h3>Nothing is ever lost</h3>
           <p>Audio streams to disk while you record. If Quill — or your Mac — dies mid-meeting, the next launch finds the orphaned audio and finishes the note automatically.</p></div>
         <div class="row"><h3>It learns your vocabulary</h3>
-          <p>Quill builds a lexicon from your vault — note titles, tags, wikilinks, attendees — and feeds it to the recognizer, so your project names stop being mangled. Add terms by editing <code>Quill/lexicon.md</code> in your vault; rename a speaker in a note and Quill learns the name for next time.</p></div>
+          <p>Quill builds a lexicon from your vault — note titles, tags, wikilinks, attendees — and feeds it to the recognizer, so your project names stop being mangled. Add terms by editing <code>Quill/lexicon.md</code> in your vault; rename a speaker in a note and Quill learns the name for later meetings.</p></div>
         <div class="row"><h3>No fake analysis</h3>
           <p>With Apple Intelligence available (and its toggle on), summaries and action items come from the on-device model. Without it, Quill gives you the transcript and says so plainly — it never invents takeaways it can't support.</p></div>
       </div>
@@ -218,7 +220,7 @@
         <div class="row"><h3>Everything is processed on-device</h3>
           <p>Voice activity detection, speaker separation, and Apple's on-device speech recognition run locally. The audio and transcript never touch a network.</p></div>
         <div class="row"><h3>A finished note lands in your vault</h3>
-          <p>YAML frontmatter, Dataview-ready fields, speaker-labeled transcript, action items, and takeaways — a plain markdown file in your vault's Meetings folder. Rename “Speaker 1” to a real name the way you'd edit any note.</p></div>
+          <p>YAML frontmatter, Dataview-ready fields, a speaker-labeled transcript, and, with Apple Intelligence, action items and takeaways — a plain markdown file in your vault's Meetings folder. Rename “Speaker 1” to a real name the way you'd edit any note.</p></div>
       </div>
     </section>
 

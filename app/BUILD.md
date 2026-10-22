@@ -75,7 +75,12 @@ release asset and checks its SHA-256). Keep them in lockstep:
    publishing alphas with `--tag alpha` only.
 5. In `bunnycompany/homebrew-tap`, set `version` and `sha256` in
    `Casks/quill.rb` to the new values and push.
-6. If `site/index.html` changed, redeploy quill.systems.
+6. If `site/index.html` changed, redeploy quill.systems. The site is a
+   Cloudflare Pages direct-upload project (`quill-systems`), not connected to
+   git, so pushing to `main` does not deploy it:
+   `wrangler pages deploy site --project-name quill-systems` (or upload the
+   `site/` folder in the Cloudflare dashboard), then check that
+   `curl -s https://quill.systems/ | head -1` prints `<!doctype html>`.
 
 Sanity check afterwards: `npm view @pepperchan/quill dist-tags`,
 `brew fetch --cask bunnycompany/tap/quill`, and the release page should all

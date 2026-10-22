@@ -29,4 +29,4 @@ if (fs.existsSync(appPath)) fs.rmSync(appPath, { recursive: true, force: true })
 // ditto preserves the code signature and resource forks.
 execFileSync("ditto", ["-x", "-k", zip, dest], { stdio: "inherit" });
 console.log(`Quill installed to ${appPath}`);
-console.log("First launch: right-click Quill.app -> Open (alpha is ad-hoc signed).");
+console.log("First launch: if macOS blocks it, open System Settings > Privacy & Security and click Open Anyway (the alpha is ad-hoc signed).");
