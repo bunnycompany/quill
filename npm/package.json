@@ -7,10 +7,13 @@
   "bugs": {"url": "https://github.com/bunnycompany/quill/issues"},
   "author": "Pepper Research",
   "bin": {"quill-install": "bin/install.js"},
-  "scripts": {"postinstall": "node bin/install.js || true"},
+  "scripts": {
+    "postinstall": "node bin/install.js",
+    "prepublishOnly": "test -f Quill.app.zip || { echo 'Quill.app.zip is missing: run ../app/build.sh --zip and copy it here' >&2; exit 1; }"
+  },
   "os": ["darwin"],
   "cpu": ["arm64"],
-  "files": ["bin", "Quill.app.zip", "README.md"],
+  "files": ["bin", "Quill.app.zip", "README.md", "LICENSE"],
   "keywords": ["macos", "menubar", "meeting", "transcription", "diarization", "obsidian", "local-first"],
   "license": "MIT"
 }

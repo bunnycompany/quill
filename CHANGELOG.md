@@ -18,5 +18,13 @@ First public alpha.
 - Processing queue
 - Menubar level meter
 
-Requires macOS 15+ on Apple Silicon. Ad-hoc signed: first launch is
-right-click → Open.
+Requires macOS 15+ on Apple Silicon. Ad-hoc signed: if macOS blocks the
+first launch, open System Settings → Privacy & Security and click Open Anyway
+(macOS 15 no longer offers right-click → Open for unsigned apps).
+
+Known issues in this build:
+
+- The app bundle reports version 1.0 (build 1) in Finder and About. Builds
+  from `app/build.sh` now carry the real version.
+- `Quill.app.zip` contains stray `._` AppleDouble entries. They are harmless
+  when installed with npm or Homebrew, and visible if you unzip it by hand.

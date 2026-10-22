@@ -17,8 +17,9 @@ in the menu bar (quote-bubble icon), there is no Dock icon.
 
 macOS will prompt for these the first time the corresponding feature runs:
 
-1. **Microphone** — on your first "Start Recording". Required for the
-   primary mic-capture path.
+1. **Microphone** — "Start Recording" stays disabled until it is granted;
+   click **Grant** in the popover's permission banner to trigger the prompt.
+   Required for the primary mic-capture path.
 2. **Speech Recognition** — when the first recording finishes and
    transcription starts. Transcription is pinned on-device
    (`requiresOnDeviceRecognition = true`); audio never leaves the Mac.
@@ -47,7 +48,8 @@ its prerelease tag (`0.1.0-alpha.1` → `0.1.0`, because macOS wants dotted
 integers there) and `CFBundleVersion` gets the commit count, so it rises with
 every commit. That needs a full clone: a shallow clone or a source tarball
 falls back to build 1 with a warning, which is fine for a personal build but
-not for a release. Bump `npm/package.json` first, then build.
+not for a release. Bump `npm/package.json` first, then build. (The shipped
+0.1.0-alpha.1 predates this and reports 1.0, build 1.)
 
 ## Cutting a release
 
@@ -55,8 +57,9 @@ Three channels ship the same `Quill.app.zip`: the GitHub release asset, the
 npm package (which bundles it), and the Homebrew cask (which downloads the
 release asset and checks its SHA-256). Keep them in lockstep:
 
-1. Bump `"version"` in `npm/package.json` (e.g. `0.1.0-alpha.2`), add a
-   `CHANGELOG.md` entry, and commit.
+1. Bump `"version"` in `npm/package.json` (e.g. `0.1.0-alpha.3`; alpha.2 was
+   published and then unpublished, and npm never lets a version number be
+   reused), add a `CHANGELOG.md` entry, and commit.
 2. `./build.sh --zip` — builds, signs, and writes `app/Quill.app.zip`
    (git-ignored); it prints the SHA-256 you will need for the cask.
 3. Tag and publish the GitHub release **from that commit** with
