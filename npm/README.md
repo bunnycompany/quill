@@ -11,9 +11,15 @@ Obsidian vault. No cloud, no account.
 npm install -g @pepperchan/quill@alpha
 ```
 
-Installs `Quill.app` to `/Applications` (or `~/Applications`). Requires
-macOS 15+ on Apple Silicon. The alpha is ad-hoc signed: first launch is
-right-click → Open.
+or with Homebrew:
+
+```
+brew tap bunnycompany/tap && brew install --cask quill
+```
+
+Either installs `Quill.app` to `/Applications` (npm falls back to
+`~/Applications`). Requires macOS 15+ on Apple Silicon. The alpha is ad-hoc
+signed: first launch is right-click → Open.
 
 ## Use
 
@@ -29,4 +35,4 @@ Recording, on-device transcription, note structuring, audio embed, and
 Obsidian export are tested end-to-end. System-audio capture is experimental.
 Speaker separation quality depends on voices being acoustically distinct.
 
-MIT. Site: quill.systems
+MIT. Site: quill.systems · Source: github.com/bunnycompany/quill

@@ -2,10 +2,12 @@
   "name": "@pepperchan/quill",
   "version": "0.1.0-alpha.1",
   "description": "Quill — local-first macOS menubar meeting recorder: on-device diarization, transcription, and Obsidian export. Ships a native .app; installs to /Applications.",
-  "bin": { "quill-install": "bin/install.js" },
-  "scripts": {
-    "postinstall": "node bin/install.js || true"
-  },
+  "homepage": "https://quill.systems",
+  "repository": {"type": "git", "url": "git+https://github.com/bunnycompany/quill.git", "directory": "npm"},
+  "bugs": {"url": "https://github.com/bunnycompany/quill/issues"},
+  "author": "Pepper Research",
+  "bin": {"quill-install": "bin/install.js"},
+  "scripts": {"postinstall": "node bin/install.js || true"},
   "os": ["darwin"],
   "cpu": ["arm64"],
   "files": ["bin", "Quill.app.zip", "README.md"],

@@ -11,9 +11,15 @@ Obsidian vault. No cloud, no account.
 npm install -g @pepperchan/quill@alpha
 ```
 
-Installs `Quill.app` to `/Applications` (or `~/Applications`). Requires
-macOS 15+ on Apple Silicon. The alpha is ad-hoc signed: first launch is
-right-click → Open.
+or with Homebrew:
+
+```
+brew tap bunnycompany/tap && brew install --cask quill
+```
+
+Either installs `Quill.app` to `/Applications` (npm falls back to
+`~/Applications`). Requires macOS 15+ on Apple Silicon. The alpha is ad-hoc
+signed: first launch is right-click → Open.
 
 ## Use
 
@@ -28,5 +34,17 @@ speaker-labeled transcript, action items, and an `![[audio]]` embed
 Recording, on-device transcription, note structuring, audio embed, and
 Obsidian export are tested end-to-end. System-audio capture is experimental.
 Speaker separation quality depends on voices being acoustically distinct.
+
+## Repository layout
+
+- `app/` — Swift sources and `build.sh`. See [`app/BUILD.md`](app/BUILD.md) to build from source or cut a release.
+- `npm/` — the `@pepperchan/quill` installer package; it bundles the built `Quill.app.zip`.
+- `site/` — the single-page site served at quill.systems.
+- `skills/` — eight teaching modules that rebuild Quill from zero; start at [`skills/CURRICULUM.md`](skills/CURRICULUM.md).
+- `marketing/` — launch post drafts.
+
+Each [GitHub release](https://github.com/bunnycompany/quill/releases) carries
+the signed `Quill.app.zip` that the npm package bundles and the Homebrew cask
+downloads. Changes are listed in [`CHANGELOG.md`](CHANGELOG.md).
 
 MIT. Site: quill.systems
