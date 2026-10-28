@@ -31,7 +31,10 @@ rm -rf "$APP"
 mkdir -p "$APP/Contents/MacOS" "$APP/Contents/Resources"
 
 echo "Compiling Quill $PKG_VERSION (build $BUILD_NUMBER)…"
-swiftc \
+# xcrun picks the compiler that matches the selected SDK; a bare `swiftc` can
+# resolve to an older swiftly/open-source toolchain on PATH and fail on the
+# SDK's Swift 6.4 modules (e.g. `import Accelerate`).
+xcrun swiftc \
     -O \
     -parse-as-library \
     -target arm64-apple-macos15.0 \
